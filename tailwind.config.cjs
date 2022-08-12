@@ -9,7 +9,7 @@ module.exports = {
 				padding: '1rem',
 			},
 			colors: {
-				primary: '#8cc84b',
+				primary: '#007dc9',
 				secondary: '#09091b',
 				darkGray: '#161627',
 				light: '#fffffffa;',
