@@ -702,7 +702,7 @@ menu {
 	padding: 0.2em 0.4em;
 	margin: 0;
 	font-size: 85%;
-	background-color: rgba(175, 184, 193, 0.2);
+	background-color: #444;
 	border-radius: 6px;
 }
 .markdown-body code br,
