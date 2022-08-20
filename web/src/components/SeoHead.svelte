@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page, session } from '$app/stores';
-	export let title = 'Decode Javascript';
-	export let description = `Decode Javascript interview questions and answers`;
+	import { environment } from '../environment';
+	export let title = environment.title;
+	export let description = environment.subTitle;
 	export let ogTitle = title;
 	let origin = $session.origin;
 	export let ogImage = $session.origin + '/logo.png';

@@ -1,3 +1,4 @@
 export const environment = {
-	title: 'Javascript Interview Questions'
+	title: 'Typescript Interview Questions',
+	subTitle: 'Typescript Interview Questions'
 };

@@ -40,10 +40,7 @@
 	};
 </script>
 
-<SeoHead
-	title="Javascript Questions"
-	ogDescription="Javascript Topics with Questions and Answers"
-/>
+<SeoHead />
 {#key currentRoute}
 	<main in:fade={{ duration: 500, delay: 100 }} out:fade={{ duration: 100 }}>
 		<slot />
