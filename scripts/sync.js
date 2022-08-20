@@ -55,7 +55,6 @@ import path from 'path'
 		}
 		topics[section] = [...(topics[section] || []), payload]
 	})
-	console.log(topics)
 	const tableOfContentsStringForMarkdown = Object.values(topics)
 		.flat(Infinity)
 		.map((y, i) => `- [${i + 1} ${y?.title}](#${slugify(y?.title)})\n`)
