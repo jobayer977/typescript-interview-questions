@@ -1,4 +1,6 @@
 <script>
+	import { environment } from '../environment';
+
 	import { createEventDispatcher } from 'svelte';
 	export let totalTopics;
 	const dispatch = createEventDispatcher();
@@ -10,12 +12,12 @@
 			<img class="h-16 lg:h-24" src="/logo.svg" alt="" />
 		</div>
 		<div>
-			<h1>Javascript Questions</h1>
+			<h1>{environment.title}</h1>
 			<p>
 				{#if totalTopics}
 					{totalTopics}+
 				{/if}
-				Javascript Topics with Questions and Answers
+				{environment.subTitle}
 			</p>
 		</div>
 	</a>
