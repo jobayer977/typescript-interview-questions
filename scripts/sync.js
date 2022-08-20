@@ -10,16 +10,8 @@ import path from 'path'
 	const title = 'Frequently Asked JavaScript Interview Questions'
 	const resources = [
 		{
-			title: 'Interview-questions - by Toptal',
-			url: 'https://www.toptal.com/javascript/interview-questions',
-		},
-		{
-			title: 'Javascript-interview-questions - by sudheerj',
-			url: 'https://github.com/sudheerj/javascript-interview-questions',
-		},
-		{
-			title: 'javascript-questions - by lydiahallie',
-			url: 'https://github.com/lydiahallie/javascript-questions',
+			title: 'Typescript Documentations',
+			url: 'https://www.typescriptlang.org/',
 		},
 	]
 	const fromDir = (startPath, filter, callback) => {
