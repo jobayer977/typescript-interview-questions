@@ -18,10 +18,12 @@
 - [11 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
 - [12 What is type assertion?](#what-is-type-assertion)
 - [13 What is type casting in typescript](#what-is-type-casting-in-typescript)
-- [14 what is type narrowing in typescript](#what-is-type-narrowing-in-typescript)
-- [15 What is Typescript?](#what-is-typescript)
-- [16 What is Unions in typescript?](#what-is-unions-in-typescript)
-- [17 Why is generic used in TypeScript?](#why-is-generic-used-in-typescript)
+- [14 What is type guard in typescript](#what-is-type-guard-in-typescript)
+- [15 what is type narrowing in typescript](#what-is-type-narrowing-in-typescript)
+- [16 What is Typescript?](#what-is-typescript)
+- [17 What is Unions in typescript?](#what-is-unions-in-typescript)
+- [18 When should I use unknown keyword TypeScript?](#when-should-i-use-unknown-keyword-typescript)
+- [19 Why is generic used in TypeScript?](#why-is-generic-used-in-typescript)
 <br/><br/><br/><br/>
 
 1. ### Differences Between Type Aliases and Interfaces?
@@ -239,7 +241,29 @@ console.log("Type of Data after Type Cast==>", typeof Number(data));
 
 ```
 
-14. ### what is type narrowing in typescript
+14. ### What is type guard in typescript
+
+
+A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block. Type guards are regular functions that return a boolean, taking a type and telling TypeScript if it can be narrowed down to something more specific.
+
+**Example**
+
+```typescript
+
+function StudentId(x: string | number) {
+    if (typeof x == 'string') {
+        console.log('Student');
+    }
+    if (typeof x === 'number') {
+        console.log('Id');
+    }
+}
+StudentId(`446`); //prints Student
+StudentId(446); //prints Id
+
+```
+
+15. ### what is type narrowing in typescript
 
 Type narrowing is just what it sounds like—narrowing down a general type into something more precise. If you've ever dealt with union types, e.g. string | number you've certainly encountered this. In fact, optional types such as x?: number often require narrowing as well, as this typing is equivalent to x: number | undefined. In both of these cases, you'll likely need to handle each case in your code, and for that you'll need to narrow down the type first.
 
@@ -268,11 +292,11 @@ function rateCandy(candy: Candy): number {
 }
 ```
 
-15. ### What is Typescript?
+16. ### What is Typescript?
 
 TypeScript is a free and open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language.
 
-16. ### What is Unions in typescript?
+17. ### What is Unions in typescript?
 
 Unions are a way to combine multiple types into a single type.
 
@@ -290,7 +314,11 @@ function add(x: number, y: number): number | boolean {
 }
 ```
 
-17. ### Why is generic used in TypeScript?
+18. ### When should I use unknown keyword TypeScript?
+
+This is useful for APIs that want to signal “this can be any value, so you must perform some type of checking before you use it”. This forces users to safely introspect returned values.
+
+19. ### Why is generic used in TypeScript?
 
 Generics are able to create a component or function to work over a variety of types rather than a single one.
 
