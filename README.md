@@ -11,19 +11,20 @@
 - [4 How to call base class constructor from child class in TypeScript?](#how-to-call-base-class-constructor-from-child-class-in-typescript)
 - [5 List the built-in types in Typescript ?](#list-the-built-in-types-in-typescript)
 - [6 What are the benefits of TypeScript?](#what-are-the-benefits-of-typescript)
-- [7 What is build time error?](#what-is-build-time-error)
-- [8 what is enum in typescript](#what-is-enum-in-typescript)
-- [9 What is interface in typescript?](#what-is-interface-in-typescript)
-- [10 What is literal type in typescript](#what-is-literal-type-in-typescript)
-- [11 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
-- [12 What is type assertion?](#what-is-type-assertion)
-- [13 What is type casting in typescript](#what-is-type-casting-in-typescript)
-- [14 What is type guard in typescript](#what-is-type-guard-in-typescript)
-- [15 what is type narrowing in typescript](#what-is-type-narrowing-in-typescript)
-- [16 What is Typescript?](#what-is-typescript)
-- [17 What is Unions in typescript?](#what-is-unions-in-typescript)
-- [18 When should I use unknown keyword TypeScript?](#when-should-i-use-unknown-keyword-typescript)
-- [19 Why is generic used in TypeScript?](#why-is-generic-used-in-typescript)
+- [7 What does Required do in TypeScript?](#what-does-required-do-in-typescript)
+- [8 What is build time error?](#what-is-build-time-error)
+- [9 what is enum in typescript](#what-is-enum-in-typescript)
+- [10 What is interface in typescript?](#what-is-interface-in-typescript)
+- [11 What is literal type in typescript](#what-is-literal-type-in-typescript)
+- [12 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
+- [13 What is type assertion?](#what-is-type-assertion)
+- [14 What is type casting in typescript](#what-is-type-casting-in-typescript)
+- [15 What is type guard in typescript](#what-is-type-guard-in-typescript)
+- [16 what is type narrowing in typescript](#what-is-type-narrowing-in-typescript)
+- [17 What is Typescript?](#what-is-typescript)
+- [18 What is Unions in typescript?](#what-is-unions-in-typescript)
+- [19 When should I use unknown keyword TypeScript?](#when-should-i-use-unknown-keyword-typescript)
+- [20 Why is generic used in TypeScript?](#why-is-generic-used-in-typescript)
 <br/><br/><br/><br/>
 
 1. ### Differences Between Type Aliases and Interfaces?
@@ -138,11 +139,28 @@ The main benefit of TypeScript is that it can highlight unexpected behavior in y
 - Compile time error checking.
 - Intellisense
 
-7. ### What is build time error?
+7. ### What does Required do in TypeScript?
+
+Constructs a type consisting of all properties of Type set to required. The opposite of Partial.
+
+```typescript
+interface Props {
+  a?: number;
+  b?: string;
+}
+ 
+const obj: Props = { a: 5 };
+ 
+const obj2: Required<Props> = { a: 5 };
+
+//Property 'b' is missing in type '{ a: number; }' but required in type 'Required<Props>'.
+```
+
+8. ### What is build time error?
 
 Errors that occur when you violate the rules of writing syntax are known as build-Time errors. This compiler error indicates something that must be fixed before the code can be compiled. All these errors are detected by the compiler and thus are known as build-time or compile-time errors.
 
-8. ### what is enum in typescript
+9. ### what is enum in typescript
 In TypeScript, enums, or enumerated types, are data structures of constant length that hold a set of constant values. Each of these constant values is known as a member of the enum. Enums are useful when setting properties or values that can only be a certain number of possible values.
 
 ```typescript
@@ -159,7 +177,7 @@ respond("Princess Caroline", UserResponse.Yes);
 
 ```
 
-9. ### What is interface in typescript?
+10. ### What is interface in typescript?
 
 Interface is a blueprint of an object which is used to define the properties and methods of an object. It is used to define the structure of an object. and helpfull in type checking.
 
@@ -178,7 +196,7 @@ var person: Person = {
 
 ```
 
-10. ### What is literal type in typescript
+11. ### What is literal type in typescript
 TypeScript Literal Types restrict the value of a variable to finite valid values. This is in contrast to the variable which allows you to change value (except for TypeScript Constants). The latest version of Typescript supports the String Literal Types, Numeric Literal Types, Boolean Literal Types & Enum Literal Types.
 
 **Example**
@@ -199,7 +217,7 @@ interface ValidationFailure {
 type ValidationResult = ValidationSuccess | ValidationFailure;
 ```
 
-11. ### What is static type checking in TypeScript?
+12. ### What is static type checking in TypeScript?
 
 It is a type system that is used to check the type of variables and functions at compile time. Used to prevent runtime errors and improve the readability of the code. Static type checking is helpful in debugging and also in writing clean and readable code and IDE intellisense features.
 
@@ -209,7 +227,7 @@ message()
 //ERROR:  This expression is not callable.
 ```
 
-12. ### What is type assertion?
+13. ### What is type assertion?
 
  Type assertions enable you to override default type inference for neutral types. Type assertion is a technique that informs the compiler about the type of a variable. Type assertion is similar to typecasting but it doesn’t reconstruct code. You can use type assertion to specify a value’s type and tell the compiler not to deduce it. When we want to change a variable from one type to another such as any to number etc, we use Type assertion.
 
@@ -225,7 +243,7 @@ console.log(len);
                         
 ```
 
-13. ### What is type casting in typescript
+14. ### What is type casting in typescript
 
 Type casting means changing an expression from one data type to another.
 
@@ -241,7 +259,7 @@ console.log("Type of Data after Type Cast==>", typeof Number(data));
 
 ```
 
-14. ### What is type guard in typescript
+15. ### What is type guard in typescript
 
 
 A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block. Type guards are regular functions that return a boolean, taking a type and telling TypeScript if it can be narrowed down to something more specific.
@@ -263,7 +281,7 @@ StudentId(446); //prints Id
 
 ```
 
-15. ### what is type narrowing in typescript
+16. ### what is type narrowing in typescript
 
 Type narrowing is just what it sounds like—narrowing down a general type into something more precise. If you've ever dealt with union types, e.g. string | number you've certainly encountered this. In fact, optional types such as x?: number often require narrowing as well, as this typing is equivalent to x: number | undefined. In both of these cases, you'll likely need to handle each case in your code, and for that you'll need to narrow down the type first.
 
@@ -292,11 +310,11 @@ function rateCandy(candy: Candy): number {
 }
 ```
 
-16. ### What is Typescript?
+17. ### What is Typescript?
 
 TypeScript is a free and open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language.
 
-17. ### What is Unions in typescript?
+18. ### What is Unions in typescript?
 
 Unions are a way to combine multiple types into a single type.
 
@@ -314,11 +332,18 @@ function add(x: number, y: number): number | boolean {
 }
 ```
 
-18. ### When should I use unknown keyword TypeScript?
+19. ### When should I use unknown keyword TypeScript?
+We may need to describe the type of variables that we do not know when we are writing an application. These values may come from dynamic content – e.g. from the user – or we may want to intentionally accept all values in our API. In these cases, we want to provide a type that tells the compiler and future readers that this variable could be anything, so we give it the unknown type.
 
-This is useful for APIs that want to signal “this can be any value, so you must perform some type of checking before you use it”. This forces users to safely introspect returned values.
+```typescript
+let notSure: unknown = 4;
+notSure = "maybe a string instead";
+ 
+// OK, definitely a boolean
+notSure = false;
+```
 
-19. ### Why is generic used in TypeScript?
+20. ### Why is generic used in TypeScript?
 
 Generics are able to create a component or function to work over a variety of types rather than a single one.
 
