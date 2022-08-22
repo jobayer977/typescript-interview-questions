@@ -1,6 +1,7 @@
 # Frequently Asked Typescript Interview Questions 
  ### Resources 
 - [Typescript Documentations](https://www.typescriptlang.org/) 
+- [Fullstack Cafe](https://www.fullstack.cafe) 
  
 
  ## Table of Contents

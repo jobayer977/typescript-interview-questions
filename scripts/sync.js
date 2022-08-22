@@ -13,6 +13,10 @@ import path from 'path'
 			title: 'Typescript Documentations',
 			url: 'https://www.typescriptlang.org/',
 		},
+		{
+			title: 'Fullstack Cafe',
+			url: 'https://www.fullstack.cafe',
+		},
 	]
 	const fromDir = (startPath, filter, callback) => {
 		if (!existsSync(startPath)) {
