@@ -7,7 +7,7 @@ import path from 'path'
 ;
 
 (async function () {
-	const title = 'Frequently Asked JavaScript Interview Questions'
+	const title = 'Frequently Asked Typescript Interview Questions'
 	const resources = [
 		{
 			title: 'Typescript Documentations',
