@@ -14,7 +14,7 @@
 			</a>
 		</div>
 		<p class="copy-write">
-			Copyright ©{new Date().getFullYear()}, Decode Javascript
+			Copyright ©{new Date().getFullYear()}, {environment.subTitle}
 		</p>
 	</div>
 </div>
