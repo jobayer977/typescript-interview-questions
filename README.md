@@ -30,12 +30,18 @@
 - [22 How do you declare a class constant?](#how-do-you-declare-a-class-constant)
 - [23 What does TypeScript map file do?](#what-does-typescript-map-file-do)
 - [24 How to call base class constructor from child class in TypeScript?](#how-to-call-base-class-constructor-from-child-class-in-typescript)
-- [25 List the built-in types in Typescript ?](#list-the-built-in-types-in-typescript)
-- [26 What are the benefits of TypeScript?](#what-are-the-benefits-of-typescript)
-- [27 What is interface in typescript?](#what-is-interface-in-typescript)
-- [28 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
-- [29 What is Typescript?](#what-is-typescript)
-- [30 What is Unions in typescript?](#what-is-unions-in-typescript)
+- [25 What is getters setters in TypeScript?](#what-is-getters-setters-in-typescript)
+- [26 What are conditional types in TypeScript?](#what-are-conditional-types-in-typescript)
+- [27 How do you make an array read-only?](#how-do-you-make-an-array-read-only)
+- [28 What is public and private in TypeScript?](#what-is-public-and-private-in-typescript)
+- [29 What is override in TypeScript?](#what-is-override-in-typescript)
+- [30 Does TypeScript have overloading?](#does-typescript-have-overloading)
+- [31 List the built-in types in Typescript ?](#list-the-built-in-types-in-typescript)
+- [32 What are the benefits of TypeScript?](#what-are-the-benefits-of-typescript)
+- [33 What is interface in typescript?](#what-is-interface-in-typescript)
+- [34 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
+- [35 What is Typescript?](#what-is-typescript)
+- [36 What is Unions in typescript?](#what-is-unions-in-typescript)
 <br/><br/><br/><br/>
 
 1. ### Difference between explicit and implicit types in typescript ?
@@ -447,7 +453,177 @@ person.name = 'Jane Doe' // Error: Cannot assign to 'name' because it is a const
 
 We can call base class constructor using `super()`.
 
-25. ### List the built-in types in Typescript ?
+25. ### What is getters setters in TypeScript?
+
+TypeScript has getters and setters. Getters and setters as a way of intercepting and modifying the value of a property. This gives us the ability to do things like enforce data types, or to make sure that a property is never null.
+
+**Example**
+
+```typescript
+class Employee {
+    private _fullName: string;
+
+    get fullName(): string {
+        return this._fullName;
+    }
+    set fullName(newName: string) {
+        this._fullName = newName;
+    }
+}
+
+let employee = new Employee();
+employee.fullName = "Bob Smith";
+employee.fullName; // "Bob Smith"
+```
+
+26. ### What are conditional types in TypeScript?
+
+Taking a decision makes function useful for a different type of input. Conditional types, as the name suggests, define the types of value on the basis of conditions. Now, Conditional types seem like a conditional statement, although, it is same in the way that the conditional statement is used to choose the flow of code based on certain conditions and conditional  types used for choosing different types for values.
+
+27. ### How do you make an array read-only?
+Using the typescript utility. The `ReadonlyArray<T>` type is a read-only array type. It is a subtype of the `Array<T>` type. This type is useful when you want to ensure that the array is read-only.
+
+**Example**
+
+```typescript
+const arr: ReadonlyArray<number> = [1, 2, 3];
+arr[0] = 4; // Error!
+arr.push(4); // Error!
+arr.length = 0; // Error!
+arr.splice(0, 1); // Error!
+```
+
+28. ### What is public and private in TypeScript?
+
+Typescript provide us three access modifiers: public, private and protected.
+
+**Public**
+The public access modifier is used to declare a property or method as public. It is the default access modifier.
+
+```typescript
+class Employee {
+    public name: string;
+    public getName(): string {
+        return this.name;
+    }
+}
+const emp = new Employee();
+emp.name = 'John'; 
+console.log(emp.getName()); // John
+```
+
+**Private**
+The private access modifier is used to declare a property or method as private. It is used to hide the property or method from outside the class.
+
+```typescript
+class Employee {
+    private name: string;
+    private getName(): string {
+        return this.name;
+    }
+}
+const emp = new Employee();
+emp.name = 'John';
+console.log(emp.getName()); // Error: Property 'getName' is private and only accessible within class 'Employee'.
+```
+
+**Protected**
+The protected access modifier is used to declare a property or method as protected. It is used to hide the property or method from outside the class and its subclasses.
+
+```typescript
+class Employee {
+    protected name: string;
+    protected getName(): string {
+        return this.name;
+    }
+}
+class Manager extends Employee {
+    constructor() {
+        super();
+        this.name = 'John';
+    }
+    getName(): string {
+        return super.getName();
+    }
+}
+const emp = new Employee();
+emp.name = 'John';
+console.log(emp.getName()); // Error: Property 'getName' is protected and only accessible within class 'Employee' and its subclasses.
+const mgr = new Manager();
+console.log(mgr.getName()); // John
+```
+
+**Difference between private and protected**
+Private access modifier is used to hide the property or method from outside the class. Protected access modifier is used to hide the property or method from outside the class and its subclasses.
+
+29. ### What is override in TypeScript?
+
+Method Overriding is a process of overthrowing a method of super class by method of same name and parameters in sub class. Method Overriding is useful when sub class wants to modify the behavior of super class for certain tasks.
+
+**Example WithOut Overriding**
+
+```typescript
+class Base {
+ public name: string = ''
+ public getName(): string {
+  return `${this.name} Base`
+ }
+}
+class Sub extends Base {
+ constructor() {
+  super()
+  this.name = 'John'
+ }
+}
+
+const sub = new Sub()
+console.log(sub.getName()) // John Base
+```
+
+**Example With Overriding**
+
+```typescript
+class Base {
+ public name: string = ''
+ public getName(): string {
+  return `${this.name} Base`
+ }
+}
+class Sub extends Base {
+ constructor() {
+  super()
+  this.name = 'John'
+ }
+ public getName(): string {
+  return `${this.name} Sub`
+ }
+}
+
+const sub = new Sub()
+console.log(sub.getName()) // John Sub
+```
+
+30. ### Does TypeScript have overloading?
+
+TypeScript provides the concept of function overloading. You can have multiple functions with the same name but different parameter types and return type. However, the number of parameters should be the same.
+
+```typescript
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: number, b: string): string;
+
+function add(a: any, b: any): any {
+  return a + b;
+}
+
+add(1, 2); // 3
+
+add("1", "2"); // "12"
+
+add(1, "2"); // "12"
+```
+
+31. ### List the built-in types in Typescript ?
 
 Number type: it is used to represent number type values and represents double precision floating point values.
 
@@ -481,7 +657,7 @@ var variable_name:number = undefined;
 
 ```
 
-26. ### What are the benefits of TypeScript?
+32. ### What are the benefits of TypeScript?
 
 The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
@@ -492,7 +668,7 @@ The main benefit of TypeScript is that it can highlight unexpected behavior in y
 - Compile time error checking.
 - Intellisense
 
-27. ### What is interface in typescript?
+33. ### What is interface in typescript?
 
 Interface is a blueprint of an object which is used to define the properties and methods of an object. It is used to define the structure of an object. and helpfull in type checking.
 
@@ -511,7 +687,7 @@ var person: Person = {
 
 ```
 
-28. ### What is static type checking in TypeScript?
+34. ### What is static type checking in TypeScript?
 
 It is a type system that is used to check the type of variables and functions at compile time. Used to prevent runtime errors and improve the readability of the code. Static type checking is helpful in debugging and also in writing clean and readable code and IDE intellisense features.
 
@@ -521,11 +697,11 @@ message()
 //ERROR:  This expression is not callable.
 ```
 
-29. ### What is Typescript?
+35. ### What is Typescript?
 
 TypeScript is a free and open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language.
 
-30. ### What is Unions in typescript?
+36. ### What is Unions in typescript?
 
 Unions are a way to combine multiple types into a single type.
 
