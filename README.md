@@ -36,12 +36,17 @@
 - [28 What is public and private in TypeScript?](#what-is-public-and-private-in-typescript)
 - [29 What is override in TypeScript?](#what-is-override-in-typescript)
 - [30 Does TypeScript have overloading?](#does-typescript-have-overloading)
-- [31 List the built-in types in Typescript ?](#list-the-built-in-types-in-typescript)
-- [32 What are the benefits of TypeScript?](#what-are-the-benefits-of-typescript)
-- [33 What is interface in typescript?](#what-is-interface-in-typescript)
-- [34 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
-- [35 What is Typescript?](#what-is-typescript)
-- [36 What is Unions in typescript?](#what-is-unions-in-typescript)
+- [31 Why do we use abstract class in TypeScript?](#why-do-we-use-abstract-class-in-typescript)
+- [32 What is the declare keyword in TypeScript?](#what-is-the-declare-keyword-in-typescript)
+- [33 What are decorators in TypeScript?](#what-are-decorators-in-typescript)
+- [34 Should I use type or interface TypeScript?](#should-i-use-type-or-interface-typescript)
+- [35 List the built-in types in Typescript ?](#list-the-built-in-types-in-typescript)
+- [36 How do I combine two TypeScript interfaces?](#how-do-i-combine-two-typescript-interfaces)
+- [37 What are the benefits of TypeScript?](#what-are-the-benefits-of-typescript)
+- [38 What is interface in typescript?](#what-is-interface-in-typescript)
+- [39 What is static type checking in TypeScript?](#what-is-static-type-checking-in-typescript)
+- [40 What is Typescript?](#what-is-typescript)
+- [41 What is Unions in typescript?](#what-is-unions-in-typescript)
 <br/><br/><br/><br/>
 
 1. ### Difference between explicit and implicit types in typescript ?
@@ -623,7 +628,43 @@ add("1", "2"); // "12"
 add(1, "2"); // "12"
 ```
 
-31. ### List the built-in types in Typescript ?
+31. ### Why do we use abstract class in TypeScript?
+
+Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. The abstract keyword is used to define abstract classes as well as abstract methods within an abstract class.
+
+```ts
+abstract class Animal {
+    abstract makeSound(): void;
+    move(): void {
+        console.log('roaming the earth...');
+    }
+}
+ 
+
+class Dog extends Animal {
+    makeSound(): void {
+        console.log('woof');
+    }
+}
+```
+
+32. ### What is the declare keyword in TypeScript?
+The declare keyword in TypeScript is used for declaring a variable or a function as a type. It is used for declaring a variable or a function as a type.
+
+## Example
+
+```typescript
+declare var x: number;
+declare function add(x: number, y: number): number;
+```
+
+33. ### What are decorators in TypeScript?
+A Decorator is a special kind of declaration that can be attached to a class declaration, method, accessor, property, or parameter. Decorators use the form @expression , where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+
+34. ### Should I use type or interface TypeScript?
+nterfaces are most recommended for defining new objects or methods or properties of an object where it will receive a specific component. Hence interface works better when using objects and method objects. Therefore it is our choice to choose between types or interface according to the program needs.
+
+35. ### List the built-in types in Typescript ?
 
 Number type: it is used to represent number type values and represents double precision floating point values.
 
@@ -657,7 +698,25 @@ var variable_name:number = undefined;
 
 ```
 
-32. ### What are the benefits of TypeScript?
+36. ### How do I combine two TypeScript interfaces?
+
+To merge two interfaces with TypeScript, we can use extends to extend multiple interfaces. to create the IFooBar that extends IFoo and IBar . This means IFooBar has all the members from both interfaces inside.
+
+**Example**
+
+```typescript
+interface IFoo {
+    foo(): void;
+}
+interface IBar {
+    bar(): void;
+}
+
+interface IFooBar extends IFoo, IBar {
+}
+```
+
+37. ### What are the benefits of TypeScript?
 
 The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
@@ -668,7 +727,7 @@ The main benefit of TypeScript is that it can highlight unexpected behavior in y
 - Compile time error checking.
 - Intellisense
 
-33. ### What is interface in typescript?
+38. ### What is interface in typescript?
 
 Interface is a blueprint of an object which is used to define the properties and methods of an object. It is used to define the structure of an object. and helpfull in type checking.
 
@@ -687,7 +746,7 @@ var person: Person = {
 
 ```
 
-34. ### What is static type checking in TypeScript?
+39. ### What is static type checking in TypeScript?
 
 It is a type system that is used to check the type of variables and functions at compile time. Used to prevent runtime errors and improve the readability of the code. Static type checking is helpful in debugging and also in writing clean and readable code and IDE intellisense features.
 
@@ -697,11 +756,11 @@ message()
 //ERROR:  This expression is not callable.
 ```
 
-35. ### What is Typescript?
+40. ### What is Typescript?
 
 TypeScript is a free and open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language.
 
-36. ### What is Unions in typescript?
+41. ### What is Unions in typescript?
 
 Unions are a way to combine multiple types into a single type.
 
